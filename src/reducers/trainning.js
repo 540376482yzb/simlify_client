@@ -20,7 +20,7 @@ const initialState = {
 	loading: null,
 	error: null,
 	report: null,
-	grade: 0,
+	grade: 1,
 	experience: 0
 }
 
