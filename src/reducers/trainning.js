@@ -19,7 +19,9 @@ const initialState = {
 	feedback: null,
 	loading: null,
 	error: null,
-	report: null
+	report: null,
+	grade: 0,
+	experience: 0
 }
 
 export default function trainingReducer(state = initialState, action) {
@@ -33,7 +35,9 @@ export default function trainingReducer(state = initialState, action) {
 			error: null,
 			loading: false,
 			next: false,
-			feedback: null
+			feedback: null,
+			grade: action.grade,
+			experience: action.experience
 		})
 
 	case FETCH_QUESTION_ERROR:
@@ -59,7 +63,11 @@ export default function trainingReducer(state = initialState, action) {
 	case FETCH_REPORT_REQUEST:
 		return Object.assign({}, state, { loading: true })
 	case FETCH_REPORT_SUCCESS: {
-		return Object.assign({}, state, { report: action.report, loading: false, error: action.error })
+		return Object.assign({}, state, {
+			report: action.report,
+			loading: false,
+			error: action.error
+		})
 	}
 	case FETCH_REPORT_ERROR:
 		return Object.assign({}, state, { report: null, loading: false, error: action.error })

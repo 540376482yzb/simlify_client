@@ -14,8 +14,8 @@ export const localRegister = user => dispatch => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(() => {
-			const newUser = {username: user.username, password: user.password};
-			console.log(newUser);
+			const newUser = { username: user.username, password: user.password }
+			console.log(newUser)
 			return dispatch(login(newUser))
 		})
 		.catch(err => {

@@ -45,9 +45,11 @@ export const fetchQuestionRequest = () => ({
 })
 
 export const FETCH_QUESTION_SUCCESS = "FETCH_QUESTION_SUCCESS"
-export const fetchQuestionSuccess = question => ({
+export const fetchQuestionSuccess = (question, grade, experience) => ({
 	type: FETCH_QUESTION_SUCCESS,
-	question
+	question,
+	grade,
+	experience
 })
 
 export const FETCH_QUESTION_ERROR = "FETCH_QUESTION_ERROR"
@@ -72,8 +74,9 @@ export const fetchQuestion = () => (dispatch, getState) => {
 		.then(res => {
 			return res.json(res)
 		})
-		.then(question => {
-			dispatch(fetchQuestionSuccess(question))
+		.then(data => {
+			const { question, grade, experience } = data
+			dispatch(fetchQuestionSuccess(question, grade, experience))
 		})
 		.catch(err => {
 			dispatch(fetchQuestionError(err))

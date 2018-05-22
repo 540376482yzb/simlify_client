@@ -1,57 +1,64 @@
 .login-form {
-  width: 100%;
+	width: 100%;
 }
 
 .login-form label {
-  display: inline-block;
-  font-weight: bold;
-  padding-bottom: 10px;
-  text-align: left;
-  text-transform: uppercase;
+	display: inline-block;
+	font-weight: bold;
+	padding-bottom: 10px;
+	text-align: left;
+	text-transform: uppercase;
 }
 
 .login-form input {
-  border: 2px solid darkgrey;
-  width: 100%;
-  padding: 15px;
+	border: 2px solid darkgrey;
+	width: 100%;
+	padding: 15px;
 }
 
 .form-input {
-  padding-bottom: 5%;
+	padding-bottom: 5%;
 }
 
 .login-form button {
 	border-radius: 5px;
-  display: inline-block;
-  padding: 15px;
-  margin-bottom: 15px;
-  width: 100%;
+	display: inline-block;
+	padding: 15px;
+	margin-bottom: 15px;
+	width: 100%;
 }
 
 .form-primary-button {
-  background-color: #43a047;
-  border-style: none;
-  color: white;
-  font-weight: bold;
+	background-color: #43a047;
+	border-style: none;
+	color: white;
+	font-weight: bold;
+}
+.form-secondary-button {
+	background-color: #a05643;
+	border-style: none;
+	color: white;
+	font-weight: bold;
 }
 
 .form-login {
-  background-color: white;
-  border: 2px solid lightgray;
-  color: darkgray;
+	background-color: white;
+	border: 2px solid lightgray;
+	color: darkgray;
 }
 
 .form-login-text {
-  color: black;
-  font-weight: bold;
+	color: black;
+	font-weight: bold;
 }
 
-.form-error, .form-warning {
-  padding-bottom: 10px;
-  color: #306AAF;
-  font-size: 75%;
+.form-error,
+.form-warning {
+	padding-bottom: 10px;
+	color: #306aaf;
+	font-size: 75%;
 }
 
 ::placeholder {
-  color: lightgray;
+	color: lightgray;
 }

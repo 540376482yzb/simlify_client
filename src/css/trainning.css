@@ -14,9 +14,10 @@
 	background-size: cover;
 }
 .training-content {
-	width: 480px;
+	width: 95%;
 	background: white;
 	border-radius: 5px;
+	min-width: 320px;
 }
 .training-header {
 	font-size: 20px;
@@ -40,7 +41,7 @@
 }
 .training-input-group button {
 	cursor: pointer;
-	width: 350px;
+	width: 95%;
 	margin: 10px 10px;
 	padding: 10px 10px;
 	background-color: #43a047;
@@ -102,12 +103,12 @@
 	font-weight: bold;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 500px) {
 	.training-container {
 		min-height: 100vh;
 		background: url("http://www.kinyu-z.net/data/wallpapers/83/992320.jpg");
 	}
 	.training-content {
-		width: 350px;
+		width: 500px;
 	}
 }

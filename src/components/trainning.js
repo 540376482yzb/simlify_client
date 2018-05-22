@@ -126,7 +126,7 @@ export class Trainning extends React.Component {
 				<div className="training-content animated fadeIn">
 					<header className="training-header">
 						<p>
-							What does <strong>"{currentQuestion.question}"</strong> mean?
+							What does <strong>"{currentQuestion}"</strong> mean?
 						</p>
 					</header>
 					<section className="training-body">
