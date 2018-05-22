@@ -36,7 +36,7 @@ export default function trainingReducer(state = initialState, action) {
 			loading: false,
 			next: false,
 			feedback: null,
-			grade: action.grade,
+			grade: action.grade ? action.grade : 1,
 			experience: action.experience
 		})
 

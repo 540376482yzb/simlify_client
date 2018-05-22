@@ -54,13 +54,7 @@ export class Dashboard extends React.Component {
 		} else {
 			renderContent = (
 				<div>
-					<Preview
-						greeting="Hello"
-						name={name}
-						message="Start learning"
-						grade={grade}
-						experience={experience}
-					/>
+					<Preview greeting="Hello" name={name} message="Start learning" experience={experience} />
 					<button
 						className="preview-primary-button"
 						onClick={e => {
