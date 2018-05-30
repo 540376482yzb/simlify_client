@@ -1,15 +1,16 @@
 import React from "react"
-import { connect } from "react-redux"
-import { Redirect } from "react-router-dom"
-import { fetchQuestion, submitAnswer, fetchReport, generateQuestions } from "../actions/trainning"
+import {connect} from "react-redux"
+import {Redirect} from "react-router-dom"
+import {fetchQuestion, submitAnswer, fetchReport, generateQuestions} from "../actions/trainning"
 import Input from "./training-input"
-import { Field, reduxForm, focus, reset } from "redux-form"
+import {Field, reduxForm, focus, reset} from "redux-form"
 import Dialog from "material-ui/Dialog"
 import Report from "./report"
 import GoRocket from "react-icons/lib/go/rocket"
 import GoX from "react-icons/lib/go/x"
 import "../css/trainning.css"
 import MediaQuery from "react-responsive"
+import {nonEmpty} from "../validators"
 
 const customStyle = {
 	width: "480px",
@@ -33,7 +34,7 @@ export class Trainning extends React.Component {
 		})
 	}
 	componentDidMount() {
-		const { dispatch } = this.props
+		const {dispatch} = this.props
 		dispatch(fetchQuestion())
 	}
 	onSubmit(values) {
@@ -57,12 +58,12 @@ export class Trainning extends React.Component {
 		this.handleClose()
 	}
 	handleRedirect() {
-		const { id } = this.props.currentUser
+		const {id} = this.props.currentUser
 		this.props.history.push(`/dashboard/${id}`)
 	}
 
 	render() {
-		const { currentQuestion, feedback, authToken } = this.props
+		const {currentQuestion, feedback, authToken} = this.props
 
 		if (!authToken) {
 			return <Redirect to="/" />
@@ -138,11 +139,16 @@ export class Trainning extends React.Component {
 							<Field
 								type="text"
 								name="answer"
+								validate={[nonEmpty]}
 								component={Input}
 								autocomplete="off"
 								disabled={this.props.next ? true : false}
 							/>
 							{renderBtn}
+							<p>
+								<b>Feel lost? </b> make a guess and you will be prompted with correct answer soon
+								after.
+							</p>
 						</form>
 						<div className="training-control-group">
 							<button onClick={e => this.handleFetchReport(e)}>End session</button>

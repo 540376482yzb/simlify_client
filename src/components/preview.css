@@ -1,0 +1,7 @@
+.preview-content {
+	display: flex;
+	justify-content: center;
+}
+.preview-content section {
+	margin-right: 50px;
+}

@@ -1,21 +1,23 @@
 import React from "react"
 import requiresLogin from "./requires-login"
 import Preview from "./preview"
-import { connect } from "react-redux"
-import { Redirect } from "react-router-dom"
-import { fetchQuestion, generateQuestions } from "../actions/trainning"
+import {connect} from "react-redux"
+import {Redirect} from "react-router-dom"
+import {fetchQuestion, generateQuestions, fetchReport} from "../actions/trainning"
 import "../css/dashboard.css"
 import MediaQuery from "react-responsive"
-import { Circle } from "rc-progress"
+import {Circle} from "rc-progress"
+import Report from "./report"
 export class Dashboard extends React.Component {
 	constructor(props) {
 		super(props)
 
-		this.state = { Redirect: false }
+		this.state = {Redirect: false}
 	}
 
 	componentDidMount() {
 		this.props.dispatch(fetchQuestion())
+		this.props.dispatch(fetchReport())
 	}
 
 	render() {
@@ -31,7 +33,7 @@ export class Dashboard extends React.Component {
 			return <Redirect to={`/trainning/${this.props.id}`} />
 		}
 
-		const { name, currentQuestion, grade, experience } = this.props
+		const {name, currentQuestion, grade, experience} = this.props
 		let renderContent
 		if (currentQuestion) {
 			renderContent = (
@@ -44,11 +46,10 @@ export class Dashboard extends React.Component {
 					/>
 					<button
 						className="preview-primary-button"
-						onClick={() => this.setState({ Redirect: true })}
+						onClick={() => this.setState({Redirect: true})}
 					>
 						Continue
 					</button>
-					{/* <button className="preview-button">Favorites (Coming soon!)</button> */}
 				</div>
 			)
 		} else {
@@ -59,14 +60,14 @@ export class Dashboard extends React.Component {
 						className="preview-primary-button"
 						onClick={e => {
 							e.preventDefault()
-							this.props.dispatch(generateQuestions()).then(() => this.setState({ Redirect: true }))
+							this.props.dispatch(generateQuestions()).then(() => this.setState({Redirect: true}))
 						}}
 					>
 						Start new session
 					</button>
 					{/* <button className="preview-button">Favorites (Coming soon!)</button> */}
 					<div>
-						<b style={{ color: "black" }}>User Level</b>
+						<b style={{color: "black"}}>User Level</b>
 					</div>
 				</div>
 			)
@@ -74,12 +75,20 @@ export class Dashboard extends React.Component {
 
 		return (
 			<div className="dashboard">
-				<MediaQuery query="(min-device-width: 320px)">{renderContent}</MediaQuery>
-				<section className="progress">
-					<Circle percent={experience} strokeWidth="4" strokeColor="#43A047" />
-					<div className="progress-text">
-						<b>Level: </b> {grade}
-					</div>
+				<main>
+					<MediaQuery query="(min-device-width: 320px)">{renderContent}</MediaQuery>
+					<section className="progress">
+						<Circle percent={experience} strokeWidth="4" strokeColor="#43A047" />
+						<div className="progress-text">
+							<b>Level: </b> {grade}
+						</div>
+					</section>
+				</main>
+				<section className="dashboard-report">
+					<header>
+						<h3>Report</h3>
+					</header>
+					<Report />
 				</section>
 			</div>
 		)
@@ -87,7 +96,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-	const { currentUser } = state.user
+	const {currentUser} = state.user
 	if (currentUser) {
 		return {
 			name: currentUser.firstname,
@@ -96,7 +105,8 @@ const mapStateToProps = state => {
 			next: state.trainning.next,
 			loading: state.trainning.loading,
 			grade: state.trainning.grade,
-			experience: state.trainning.experience
+			experience: state.trainning.experience,
+			report: state.trainning.report
 		}
 	} else {
 		return {

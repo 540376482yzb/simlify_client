@@ -6,12 +6,7 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background: url("https://static.trueachievements.com/customimages/068868.jpg") no-repeat center
-		center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	background-color: #ecf5fc;
 }
 .training-content {
 	width: 95%;
@@ -106,7 +101,6 @@
 @media screen and (min-width: 500px) {
 	.training-container {
 		min-height: 100vh;
-		background: url("http://www.kinyu-z.net/data/wallpapers/83/992320.jpg");
 	}
 	.training-content {
 		width: 500px;
