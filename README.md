@@ -1,6 +1,6 @@
 ### ♪ Sul Sul!
 Simlify is an app that teaches Simlish using spaced repetition. Simlish is a fictional language featured in The Sims, a video-game franchise by EA Games.
-#### server side code repo
+#### Checkout API docs from server side code repo
 [server](https://github.com/540376482yzb/a-z-simlify-server)
 
 
