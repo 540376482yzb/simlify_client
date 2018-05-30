@@ -24,17 +24,39 @@ export function About(props) {
 							<b>Simlify</b> is an app that teaches Simlish using spaced repetition. Simlish is a
 							fictional language featured in The Sims, a video-game franchise by EA Games.
 						</p>
-						<br />
+						<hr />
 						<h3 className="about-header">Adaptive Learning</h3>
-						<p>
-							Uses <i>Space-repetition algorithm</i> to adapt your learning style. The frequency of
-							the same question occurs depends on accuracy of your answers.
-						</p>
+						<section className="about-content">
+							<div
+								style={{
+									border: "solid 0.5px rgba(15,15,15,0.2)",
+									padding: 10
+								}}
+							>
+								<img src="about1.png" alt="positive feedback" width="100%" />
+							</div>
+							<p>
+								Uses <i>Space-repetition algorithm</i> to adapt your learning style. The frequency
+								of the same question occurs depends on accuracy of your answers.
+							</p>
+						</section>
 						<br />
-						<h3 className="about-header">Positive Feedback</h3>
-						<div style={{border: "solid 0.5px rgba(15,15,15,0.2)", padding: 10}}>
-							<img src="about1.png" alt="positive feedback" width="100%" />
-						</div>
+						<hr />
+						<h3 className="about-header">Incentive Learning</h3>
+						<section className="about-content">
+							<div
+								style={{
+									border: "solid 0.5px rgba(15,15,15,0.2)",
+									padding: 10
+								}}
+							>
+								<img src="about2.png" alt="positive feedback" width="100%" />
+							</div>
+							<p>
+								Grow your experiences and levels with learning. Every time you hit a correct answer,
+								the system will reward you with certain experiences to help you reach next level.
+							</p>
+						</section>
 					</section>
 				</main>
 			</MediaQuery>
